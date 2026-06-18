@@ -1,0 +1,25 @@
+name: Meta Ads Sync
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 04:00 Thai time (UTC+7)
+    - cron: '0 5 * * *'    # 12:00 Thai time (UTC+7)
+  workflow_dispatch:         # รันมือได้ด้วยกดปุ่มใน GitHub
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run sync
+        run: python main.py
+        env:
+          META_TOKEN: ${{ secrets.META_TOKEN }}
