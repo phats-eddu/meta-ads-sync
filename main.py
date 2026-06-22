@@ -301,6 +301,7 @@ def sync_account(account: dict, today: str):
     clear_sheet(sheet_id)
     log.info(f"  📅 Fetching {START_DATE} → {today}")
     rows = fetch_insights(account_id, START_DATE, today)
+    rows = [r for r in rows if not (r[0] >= "2026-06-19" and r[8] == 0)]
     log.info(f"  📦 Total records: {len(rows)}")
     if not rows:
         log.warning(f"  ⚠️ No data returned")
