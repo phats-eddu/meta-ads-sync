@@ -17,7 +17,7 @@ from datetime import datetime, timezone, timedelta
 # ────────────────────────────────────────────────────────────
 META_ACCESS_TOKEN = os.environ.get("META_TOKEN", "")
 META_API_VERSION  = "v21.0"
-START_DATE        = "2026-06-15"
+START_DATE        = "2026-06-19"
 
 LARK_APP_ID     = "cli_aab9c00f4f78deef"
 LARK_APP_SECRET = "KptQ06EE7nZ3MOcVr3uIqe3LUCfTvzo5"
